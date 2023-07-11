@@ -29,7 +29,9 @@ function App() {
 
   const scrobbler = useCallback(async () => {
     const result = await getCurrentTrack();
-    setCurrentlyPlaying((result.item as Track) || null);
+    if (!result?.item) return;
+
+    setCurrentlyPlaying(result.item as Track);
 
     if (
       getProgressPercentage(result.item.duration_ms, result.progress_ms) >= 75 &&

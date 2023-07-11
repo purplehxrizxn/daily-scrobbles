@@ -1,10 +1,24 @@
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
+
+const animation = keyframes`
+    0%  {
+        transform: translateX(0);
+        left: 0;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        left: 100%;
+    }
+`;
 
 export const StyledListItem = styled.li`
   display: flex;
   align-items: center;
   padding: 5px;
   user-select: none;
+  /* position: relative;
+  animation: ${animation} 10s linear alternate infinite; */
 
   &:not(:last-child) {
     margin-bottom: 8px;

@@ -19,16 +19,19 @@ const CurrentlyPlaying = ({ album, name, artists, uri }: CurrentlyPlayingProps) 
           </a>
         </div>
         <div className="Track-Infos">
-          <span className="Track-Container">
+          <div className="Info-Container">
             <a className="Track-Name" href={uri}>
               {name}
             </a>
-          </span>
+          </div>
 
-          <a className="Album-Name" href={album?.uri}>
-            {album?.name}
-          </a>
-          <div className="Artists-Container">
+          <div className="Info-Container">
+            <a className="Album-Name" href={album?.uri}>
+              {album?.name}
+            </a>
+          </div>
+
+          <div className="Info-Container">
             <span className="Artists">
               {(artists || []).map((e, i) => (
                 <a key={i} href={e.uri}>

@@ -1,12 +1,12 @@
 import { keyframes, styled } from "styled-components";
 
 const animation = keyframes`
-    from {
+    0%  {
         transform: translateX(0);
         left: 0;
     }
 
-    to {
+    100% {
         transform: translateX(-100%);
         left: 100%;
     }
@@ -48,17 +48,18 @@ export const CurrentlyPlayingContainer = styled.div`
       user-select: none;
       overflow: hidden;
 
-      .Track-Container {
-        display: inline-block;
+      .Info-Container {
+        display: block;
+        white-space: nowrap;
+        position: relative;
 
-        .Track-Name {
-          white-space: nowrap;
+        &:nth-child(2) {
+          margin-bottom: 15px;
+        }
+
+        > * {
           display: inline-block;
-          position: relative;
-
-          &:hover {
-            animation: ${animation} 10s linear alternate infinite;
-          }
+          animation: ${animation} 10s linear alternate infinite;
         }
       }
 
@@ -70,26 +71,14 @@ export const CurrentlyPlayingContainer = styled.div`
       .Album-Name {
         color: #ffffff70;
         margin-bottom: 15px;
-        display: block;
-        position: relative;
-        white-space: nowrap;
-
-        &:hover {
-          animation: ${animation} 10s linear alternate infinite;
-        }
       }
 
       .Artists-Container {
         display: inline-block;
-        position: relative;
 
         .Artists {
           font-weight: 600;
           white-space: nowrap;
-
-          &:hover {
-            animation: ${animation} 10s linear alternate infinite;
-          }
         }
       }
     }
