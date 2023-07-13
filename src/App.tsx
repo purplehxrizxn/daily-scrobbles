@@ -11,7 +11,7 @@ import { addScrobble } from "./redux/features/scrobbles/scrobblesSlice";
 import { RootState } from "./redux/store";
 import { AppTitle, ListContainer } from "./style";
 
-const REFRESH_RATE = 10000; // ms
+const REFRESH_RATE = 10 * 1000; // ms
 
 interface LastAddedInfos {
   timestamp: number;
@@ -26,6 +26,8 @@ function App() {
   });
   const scrobblesList = useSelector((state: RootState) => state.scrobbles.list);
   const dispatch = useDispatch();
+
+  document.title = `scrobbles (${scrobblesList.length})`;
 
   const scrobbler = useCallback(async () => {
     const result = await getCurrentTrack();

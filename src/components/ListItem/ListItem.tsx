@@ -1,4 +1,5 @@
 import { SimplifiedAlbum } from "@spotify/web-api-ts-sdk/src/types";
+import getScrobbleTime from "../../helpers/getScrobbleTime";
 import { StyledListItem } from "./style";
 
 interface ListItemProps {
@@ -6,10 +7,12 @@ interface ListItemProps {
   album: SimplifiedAlbum | null;
   timestamp: number;
 }
+const ListItem = ({ name, album, timestamp }: ListItemProps) => {
+  const date = new Date(timestamp);
 
-const ListItem = ({ name, album }: ListItemProps) => {
   return (
     <StyledListItem>
+      <span className="Scrobble-Date">{getScrobbleTime(date)}</span>
       <div className="Image-Container">
         <a href={album?.uri}>
           <img src={album?.images[0].url || ""} alt="Album cover" />

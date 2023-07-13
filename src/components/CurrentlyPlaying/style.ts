@@ -57,29 +57,24 @@ export const CurrentlyPlayingContainer = styled.div`
           margin-bottom: 15px;
         }
 
-        > * {
-          display: inline-block;
+        > *:hover {
           animation: ${animation} 10s linear alternate infinite;
+        }
+
+        .Album-Name {
+          color: #ffffff70;
+          margin-bottom: 15px;
+        }
+
+        .Artists {
+          font-weight: 600;
+          white-space: nowrap;
         }
       }
 
       a {
         color: white;
         text-decoration: none;
-      }
-
-      .Album-Name {
-        color: #ffffff70;
-        margin-bottom: 15px;
-      }
-
-      .Artists-Container {
-        display: inline-block;
-
-        .Artists {
-          font-weight: 600;
-          white-space: nowrap;
-        }
       }
     }
   }
